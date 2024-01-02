@@ -61,6 +61,7 @@ let yesCount = 0;
 let noCount = 0;
 // create a function that runs when the user clicks a div
 function userClicks(e, child, a, b) {
+  document.body.style.background = colors[Math.floor(Math.random() * colors.length)];
   if (e.target.children[0].classList.contains("found")) {
     return;
   } else {
