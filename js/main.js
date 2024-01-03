@@ -1,11 +1,4 @@
-// $(document).ready(function() { 
-//   var cards = document.querySelectorAll(".gallerycard");
-//   for(var i = 0; i < cards.length; i++){
-//     var target = Math.floor(Math.random() * cards.length -1) + 1;
-//     var target2 = Math.floor(Math.random() * cards.length -1) +1;
-//     cards.eq(target).before(cards.eq(target2));
-// }
-// }); 
+
   
 const startButton = document.getElementById("start-button");
 
@@ -17,6 +10,11 @@ const divs = ["black-div1", "brown-div1", "fuchsia-div1", "lightblue-div1", "lim
 const divsBis = ["black-div1", "brown-div1", "fuchsia-div1", "lightblue-div1", "lime-div1", "orange-div1","salmon-div1", "white-div1", 
               "black-div2", "brown-div2", "fuchsia-div2", "lightblue-div2", "lime-div2", "orange-div2","salmon-div2", "white-div2"];
 
+const imgs = ["black-img1", "brown-img1", "fuchsia-img1", "lightblue-img1", "lime-img1", "orange-img1","salmon-img1", "white-img1", 
+            "black-img2", "brown-img2", "fuchsia-img2", "lightblue-img2", "lime-img2", "orange-img2","salmon-img2", "white-img2"];
+
+const imgsBis = ["black-img1", "brown-img1", "fuchsia-img1", "lightblue-img1", "lime-img1", "orange-img1","salmon-img1", "white-img1", 
+                "black-img2", "brown-img2", "fuchsia-img2", "lightblue-img2", "lime-img2", "orange-img2","salmon-img2", "white-img2"];
 // grab each image
 
 
@@ -24,9 +22,8 @@ startButton.addEventListener("click", () => {
   container.classList.remove("hidden");
   startButton.classList.add("hidden");
   
-//  create the grid with a for loop
-// const divTest = document.getElementsByClassName('gallerycard');
-// container.appendChild(divTest);
+// Create the grid with a for loop
+
 for(i =1; i < 17; i++) {
   let div = document.createElement('div');
   container.appendChild(div);
@@ -38,15 +35,13 @@ for(i =1; i < 17; i++) {
   div.appendChild(img);
   img.classList.add("img", "hidden", "not-found");
   
-  div.setAttribute("id", randomId());
-  function randomId() {
+  div.setAttribute("id", randomDivId());
+
+  function randomDivId() {
     const nodeList = document.querySelectorAll(".gallerycard");
     const array1 = Array.prototype.slice.call(nodeList);
     let id = divs[Math.floor(Math.random() * divs.length)];
     for (let i = divs.length; i > 0; i--) {
-      // if(usedId[i] == id) {
-      //   console.log("color match");;
-      // } 
       if(!divs.includes(id)){
         console.log("doesn't include");
       } else {
@@ -55,6 +50,7 @@ for(i =1; i < 17; i++) {
         let newIdArrSpliced = newIdArr.splice(-4, 3, 'img')
         let newIdStr = newIdArr.join("");
         colorsImg.push(`<img id="${newIdStr}" class="img" src="css/assets/${newIdStr}.svg">`);
+        img.setAttribute("id", newIdStr)
         const colorsImgArr = newIdArr.push()
         divs.splice(divs.indexOf(id), 1);
         console.log("includes");
@@ -62,20 +58,10 @@ for(i =1; i < 17; i++) {
   } 
     return id;
   };
-  
-  // img.setAttribute("id", promptImgId())
 }
 // remove the grids with a while loop
 })
 
-
-
-// function promptImgSrc(node) {
-//   if(node.parentElement.outerHTML.contains(colors)) {
-
-//     return `src="css/assets/${colors}.svg"`
-//   }
-// }
 
 // useful arrays to reuse in function:
 const colorsImg = [];
