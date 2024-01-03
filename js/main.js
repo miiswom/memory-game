@@ -1,5 +1,3 @@
-
-  
 const startButton = document.getElementById("start-button");
 const container = document.getElementById("container");
 
