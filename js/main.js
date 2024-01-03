@@ -82,108 +82,50 @@ function userClicks(e, a, b) {
   e.target.children[0].classList.remove("hidden");
   e.target.children[0].classList.add("showing");
   const nodeList = document.querySelectorAll('.showing'); 
-// // console.log(nodeList); 
+// console.log(nodeList); 
 
-// // Converting using Array.prototype.slice.call 
-// const array1 = Array.prototype.slice.call(nodeList); 
-// console.log(array1);
-// if(array1.length >= 2) {
-//   a = array1[0];
-//   let strA = a.parentNode.id.toString();
-//   let nodeA = a.parentNode.children[0]
+// Converting using Array.prototype.slice.call 
+const array1 = Array.prototype.slice.call(nodeList); 
+console.log(array1);
+if(array1.length >= 2) {
+  a = array1[0];
+  let idA = a.getAttribute("id");
+  let nodeA = a.parentNode.children[0]
 
-//   b = array1[1];
-//   let strB = b.parentNode.id.toString();
-//   let nodeB = b.parentNode.children[0]
+  b = array1[1];
+  let idB = b.getAttribute("id");
+  let nodeB = b.parentNode.children[0]
 
-//   console.log(nodeA, nodeB)
+  console.log(idA, idB)
 
-//   for(let i=0; i < divsBis.length; i++) {
-//     if (strA/*.includes*/ == divsBis[i] || strB/*.includes*/ == divsBis[i]) {
-//       console.log("Match");
-//       match++;
-//     } else {
-//       console.log("No Match")
-//       noMatch++
-//     }
-//   }
-// if (match <= 2) {
-//   divsBis.forEach( (div) => {
-//     if(strA.includes(div) && strB.includes(div)) {
-//     console.log("YES");
-//     yesCount++;
-//     match = 0;
-//     noMatch = 0;
-//     return;
-//     } else { 
-//     console.log("NO");
-//     noCount++;
-//     match = 0;
-//     noMatch = 0;
-//   }} )
-//   for(let i = 0; i < colors.length; i++) {
-//     let newArrA = strA.split("");
-//     newArrA.splice(-5, 5);
-//     let newStrA = newArrA.join("");
+  newIdA = colorName(idA);
+  newIdB = colorName(idB);
+  
+  console.log(newIdA, newIdB)
+   
+  if(newIdA == newIdB) {
+    console.log("Match")
+    setTimeout(() => {
+      nodeA.classList.replace("showing", "found");
+      nodeB.classList.replace("showing", "found");
+    }, 500)
 
-//     let newArrB = strB.split("");
-//     newArrB.splice(-5, 5);
-//     let newStrB = newArrB.join("");
+  } else {
+    console.log("Not a match");
+    setTimeout(() => {
+      nodeA.classList.replace("showing", "hidden");
+      nodeB.classList.replace("showing", "hidden");
+    }, 500)
+  }
+}
 
-//     console.log(newArrA, newStrB)
-//     if(newStrA == colors[i] === true && newStrB == colors[i]) {
-//       // nodeA.classList.remove("showing");
-//       // nodeA.classList.add("hidden");
-//       // nodeB.classList.remove("showing");
-//       // nodeB.classList.add("hidden"); 
-//       console.log(nodeA, nodeB);
-//         nodeA.classList.replace("showing", "found");
-//         nodeB.classList.replace("showing", "found");
-//           match = 0;
-          
-//     } else {
-//       // nodeA.classList.remove("showing");
-//       // nodeA.classList.add("hidden");
-//       // nodeB.classList.remove("showing");
-//       // nodeB.classList.add("hidden"); 
-//       console.log(nodeA, nodeB);   
-//       nodeA.classList.replace("showing", "hidden");
-//       nodeB.classList.replace("showing", "hidden");
-//           match = 0;
-//           return;
-//     }}
-//   };
-// setTimeout ( () => {
-//   if (yesCount == 1) {
-//     // nodeA.classList.remove("showing");
-//     // nodeA.classList.add("found");
-//     // nodeB.classList.remove("showing");
-//     // nodeB.classList.add("found");#
-//     console.log(nodeA, nodeB)
-//     nodeA.classList.replace("showing", "hidden");
-//     nodeB.classList.replace("showing", "hidden");
-//          yesCount = 0;
-//          noCount = 0;
-// } else if (noCount >= 7) {
-//   console.log(nodeA, nodeB)
-//   // nodeA.classList.remove("showing");
-//   // nodeA.classList.add("hidden");
-//   // nodeB.classList.remove("showing");
-//   // nodeB.classList.add("hidden");  
-//        a.classList.replace("showing", "hidden");
-//        b.classList.replace("showing", "hidden");
-//        yesCount = 0;
-//        noCount = 0;
-// } else {
-//   yesCount = 0;
-//          noCount = 0;
-//   return;
-// }}, 500)
-// } else {
-//   console.log("ERROR")
-// }
-// }
-  }}
+
+function colorName(str) {
+  let newStr = str.split("");
+  newStr.splice(-5, 5);
+  return newStr.join("");
+}
+}}
 
 // if the click is a first time click of two diff divs (console.log, ie. only 1 img has .showing && !.hidden), allow it
 // if the click is a second time click (console.log, 2 img   has .showing && !.hidden) 
