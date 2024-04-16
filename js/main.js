@@ -1,10 +1,10 @@
 const startButton = document.getElementById("start-button");
 const container = document.getElementById("container");
 
-const divs = ["black-div1", "brown-div1", "fuchsia-div1", "lightblue-div1", "lime-div1", "orange-div1","salmon-div1", "white-div1", 
-              "black-div2", "brown-div2", "fuchsia-div2", "lightblue-div2", "lime-div2", "orange-div2","salmon-div2", "white-div2"];
-const divsBis = ["black-div1", "brown-div1", "fuchsia-div1", "lightblue-div1", "lime-div1", "orange-div1","salmon-div1", "white-div1", 
-              "black-div2", "brown-div2", "fuchsia-div2", "lightblue-div2", "lime-div2", "orange-div2","salmon-div2", "white-div2"];
+const divs = ["herbal-div1", "chocolate-div1", "soda-div1", "juice-div1", "water-div1", "tea-div1","milk-div1", "coffee-div1", 
+              "herbal-div2", "chocolate-div2", "soda-div2", "juice-div2", "water-div2", "tea-div2","milk-div2", "coffee-div2"];
+const divsBis = ["herbal-div2", "chocolate-div1", "soda-div1", "juice-div1", "water-div1", "tea-div1","milk-div1", "coffee-div1", 
+              "herbal-div2", "chocolate-div2", "soda-div2", "juice-div2", "water-div2", "tea-div2","milk-div2", "coffee-div2"];
 const imgs = ["black-img1", "brown-img1", "fuchsia-img1", "lightblue-img1", "lime-img1", "orange-img1","salmon-img1", "white-img1", 
             "black-img2", "brown-img2", "fuchsia-img2", "lightblue-img2", "lime-img2", "orange-img2","salmon-img2", "white-img2"];
 
@@ -39,11 +39,11 @@ for(i =1; i < 17; i++) {
       if(!divs.includes(id)){
         console.log("doesn't include");
       } else {
-        img.setAttribute("src", `css/assets/${id}.svg`);
+        img.setAttribute("src", `css/assets/${id}.png`);
         let newIdArr = id.split("")
         newIdArr.splice(-4, 3, 'img')
         let newIdStr = newIdArr.join("");
-        colorsImg.push(`<img id="${newIdStr}" class="img" src="css/assets/${newIdStr}.svg">`);
+        colorsImg.push(`<img id="${newIdStr}" class="img" src="css/assets/${newIdStr}.png">`);
         img.setAttribute("id", newIdStr)
         /*const colorsImgArr = */newIdArr.push()
         divs.splice(divs.indexOf(id), 1);
