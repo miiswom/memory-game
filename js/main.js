@@ -59,7 +59,7 @@ for(i =1; i < 17; i++) {
 
 // Useful arrays to reuse in function:
 const colorsImg = [];
-const colors = ["black", "brown", "fuchsia", "lightblue", "lime", "orange", "salmon", "white"];
+const colors = ["brown", "fuchsia", "lightblue", "lime", "orange", "salmon", "white"];
 
 // Create a function that runs when the user clicks a div
 function userClicks(e, a, b) {

@@ -1,6 +1,7 @@
 /* Box Model Hack */
 * {
      box-sizing: border-box;
+     border: 1px solid red;
 }
 
 /* Clear fix hack */
@@ -25,6 +26,11 @@ body {
      background: dodgerblue;
 }
 
+/* body > * {
+     border: 1px solid red;
+
+} */
+
 h1, 
 p {
      text-align: center;
@@ -42,22 +48,30 @@ p {
 /******************************************
 /* LAYOUT
 /*******************************************/
-section {
-     width: 850px;
+#container {
+     width: 80%;
+     min-width: 300px;
      margin: 0 auto;
      display: flex;
      flex-wrap: wrap;
-     gap: 5px;
+     /* gap: .3rem; */
 }
 
 .img {
-     width: 200px;
-     height: 200px;
+     max-width: 200px;
+     /* height: 200px; */
+}
+
+.gallerycard img {
+     width: 100%;
+     object-fit: cover;
 }
 
 .gallerycard {
-     width: 200px;
-     height: 200px;
+     margin: 0 auto;
+     width: 25%;
+     min-width: 4.5rem;
+     /* height: 200px; */
      border: 1px solid black;
      background: wheat;
 }
