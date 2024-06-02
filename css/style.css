@@ -50,6 +50,7 @@ p {
 #container {
      width: 80%;
      min-width: 300px;
+     max-width: 60vh;
      margin: 0 auto;
      display: flex;
      flex-wrap: wrap;
@@ -71,8 +72,9 @@ p {
 .gallerycard {
      margin: 0 auto;
      width: 25%;
-     min-width: 4.5rem;
-     /* height: 200px; */
+     /* min-width: 4.5rem; */
+     max-width: 20vh;
+     max-height: 20vh;
      border: 1px solid black;
      background: wheat;
 }
